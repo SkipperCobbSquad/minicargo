@@ -5,8 +5,9 @@ let win: Electron.BrowserWindow | null;
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1120,
+        height: 650,
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
