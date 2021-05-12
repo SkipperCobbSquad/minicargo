@@ -1,0 +1,77 @@
+{
+  "name": "minicargo",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": "./",
+  "author": {
+    "name": "SkipperCobbSquad",
+    "url": "https://github.com/SkipperCobbSquad"
+  },
+  "main": "public/electron.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.2",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.4",
+    "electron-is-dev": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "prestart": "tsc -p electron/tsconfig.json",
+    "start": "concurrently -p \"[{name}]\" -n \"REACT,ELECTRON\" -c \"cyan.bold,green.bold\" \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prebuildl": "npm run react-scripts build",
+    "buildl": "electron-builder -l"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "concurrently": "^6.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^12.0.7",
+    "electron-builder": "^22.11.3",
+    "typescript": "^4.2.4",
+    "wait-on": "^5.3.0"
+  },
+  "build": {
+    "appId": "com.jarvis-systems.minicargo",
+    "productName": "miniCargo",
+    "artifactName": "${productName}-${version}.${ext}",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  }
+}
