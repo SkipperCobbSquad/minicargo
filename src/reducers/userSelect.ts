@@ -8,7 +8,7 @@ export interface ActionUserSelector {
   type: ActionUserSelectorType;
 }
 
-export const userSelectoreducer = (
+export const userSelectoReducer = (
   state = ActionUserSelectorType.store,
   action: ActionUserSelector
 ) => {

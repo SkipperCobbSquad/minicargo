@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { ReduxStore } from '../store';
 
 const TopDiv = styled.div`
   display: flex;
@@ -13,6 +15,11 @@ const TopTitle = styled.p`
   margin: 3px 0 3px 7px;
   color: #efc48f;
 `;
+
+const TopUserSelect = styled.p`
+  margin: 3px 0 3px 0;
+  color: #efc48f;
+`
 
 const TopButtonsWrapper = styled.div`
   display: flex;
@@ -35,9 +42,11 @@ const TopButton: any = styled.div`
 `;
 
 export const TopBar = () => {
+  const userSelect = useSelector((state: ReduxStore) => state.userSelect);
   return (
     <TopDiv>
       <TopTitle>miniCargo</TopTitle>
+      <TopUserSelect>{userSelect.toUpperCase()}</TopUserSelect>
       <TopButtonsWrapper>
         <TopButton>
           <i className="icofont-minus"></i>

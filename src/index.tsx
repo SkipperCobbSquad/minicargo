@@ -5,7 +5,16 @@ import './icofont.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import {store} from './store';
+// import {store} from './store';
+
+import { createStore } from 'redux';
+import { allReducers } from './reducers';
+
+export const store = createStore(
+  allReducers,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

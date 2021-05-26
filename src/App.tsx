@@ -10,10 +10,13 @@ import { TopBar } from './Home/NavBar';
 
 import Logo from './miniCargoLogo.svg';
 
+import {PopUp} from './popup/PopUp';
+
 const MainAppDiv = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;
+  z-index: 1;
   width: 100%;
   height: 100%;
   background: #111;
@@ -34,6 +37,10 @@ const LeftBarDiv = styled.div`
   justify-content: space-between;
   background: #363945;
   box-shadow: inset 0 0 10px #000000;
+
+  @media screen and (min-width: 1200px){
+    width: 10%;
+  }
 `;
 
 const LogoHolder = styled.div`
@@ -53,7 +60,6 @@ const LogoImage = styled.img`
 
 const NavDiv = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
   margin-top: 10px;
   padding: 0 7px 0 7px;
@@ -78,12 +84,14 @@ const NavItemP = styled.p`
 const InfoDiv = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: flex-end;
   align-content: center;
   text-align: center;
   margin-bottom: 10px;
   color: #767b83;
+  @media screen and (min-width: 1200px){
+    flex:1;
+  }
 `;
 
 function App() {
@@ -93,6 +101,7 @@ function App() {
   return (
     <MainAppDiv>
       <TopBar></TopBar>
+      <PopUp></PopUp>
       <ContentDiv>
         <LeftBarDiv>
           <LogoHolder>
@@ -111,6 +120,7 @@ function App() {
               <NavItemP>Outcoming</NavItemP>
               <i className="icofont-upload-alt"></i>
             </NavItem>
+            <div style={{border: '1px dashed grey', margin: '8px 0 5px 0', opacity: '0.8'}} ></div>
             <NavItem>
               <NavItemP>Stats</NavItemP>
               <i className="icofont-chart-line"></i>

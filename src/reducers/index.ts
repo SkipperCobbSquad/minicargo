@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux'
-import { userSelectoreducer } from './userSelect'
+import { combineReducers } from 'redux';
+import { userSelectoReducer } from './userSelect';
+import { mongoConnectionReducer } from './mongoConnect';
 
 export const allReducers = combineReducers({
-    userSelect: userSelectoreducer
-})
+  userSelect: userSelectoReducer,
+  mongoStatus: mongoConnectionReducer,
+});
